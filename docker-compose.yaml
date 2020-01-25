@@ -1,0 +1,30 @@
+version: "2.3"
+services:
+  web:
+    image: mysql
+    container_name: thools
+    ports:
+      - 9090:9090
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+    volumes:
+      - ./config.json:/app/config.json
+  mysql:
+    image: mysql
+    container_name: thools
+    command: mysqld --user=admin
+    volumes:
+      - ./mysql_dbscript.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=thools
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=password#123
+      - MYSQL_ROOT_PASSWORD=password#123
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10
