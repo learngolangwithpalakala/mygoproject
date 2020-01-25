@@ -1,0 +1,2 @@
+# mygoproject
+golang tutorial
