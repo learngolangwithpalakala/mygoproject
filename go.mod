@@ -1,6 +1,6 @@
-module github.com/bxcodec/go-clean-arch
+module github.com/learngolangwithpalakala/mygoproject
 
-go 1.12
+go 1.14
 
 require (
 	github.com/bxcodec/faker v1.4.2
@@ -8,6 +8,7 @@ require (
 	github.com/go-playground/locales v0.12.1 // indirect
 	github.com/go-playground/universal-translator v0.16.0 // indirect
 	github.com/go-sql-driver/mysql v1.4.1
+	github.com/gorilla/sessions v1.2.0
 	github.com/jinzhu/gorm v1.9.11
 	github.com/jinzhu/now v1.1.1 // indirect
 	github.com/labstack/echo v3.3.10+incompatible

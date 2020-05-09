@@ -1,13 +1,15 @@
 package repository_test
 
 import (
-	"github.com/bxcodec/go-clean-arch/config"
+	"github.com/learngolangwithpalakala/mygoproject/config"
 	"github.com/stretchr/testify/assert"
+
 	//sqlmock "gopkg.in/DATA-DOG/go-sqlmock.v1"
 	"testing"
 
-	roleRepo "github.com/bxcodec/go-clean-arch/admin/role/repository"
+	roleRepo "github.com/learngolangwithpalakala/mygoproject/admin/role/repository"
 )
+
 /*
 func TestGetByID(t *testing.T) {
 	db, mock, err := sqlmock.New()
@@ -34,14 +36,14 @@ func TestGetByID(t *testing.T) {
 
 func TestFindAll(t *testing.T) {
 	//db, mock, err := sqlmock.New()
-   db, err := config.GetDB()
+	db, err := config.GetDB()
 	if err != nil {
 		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
 	}
 	r := roleRepo.NewMysqlRoleRepository(db)
-	rolesList ,err := r.FindAll()
+	rolesList, err := r.FindAll()
 	if err != nil {
 
 	}
-	assert.NotEmpty(t,rolesList)
+	assert.NotEmpty(t, rolesList)
 }

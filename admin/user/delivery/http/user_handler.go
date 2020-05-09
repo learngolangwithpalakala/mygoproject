@@ -3,14 +3,15 @@ package http
 import (
 	"context"
 	"encoding/json"
-	"github.com/bxcodec/go-clean-arch/admin/user"
-	"github.com/bxcodec/go-clean-arch/models"
-	"github.com/gorilla/sessions"
-	"github.com/labstack/echo"
-	"github.com/sirupsen/logrus"
-	validator "gopkg.in/go-playground/validator.v9"
 	"net/http"
 	"strconv"
+
+	"github.com/gorilla/sessions"
+	"github.com/labstack/echo"
+	"github.com/learngolangwithpalakala/mygoproject/admin/user"
+	"github.com/learngolangwithpalakala/mygoproject/models"
+	"github.com/sirupsen/logrus"
+	validator "gopkg.in/go-playground/validator.v9"
 )
 
 var store = sessions.NewCookieStore([]byte("secret"))

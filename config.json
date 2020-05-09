@@ -1,19 +1,20 @@
 {
   "debug": true,
   "server": {
-    "address": ":9090",
+    "address": ":9092",
     "host": "localhost"
+
   },
-  "context":{
-    "timeout":2
+  "context": {
+    "timeout": 2
   },
   "database": {
-      "driver": "mysql",
-      "host": "172.0.75.1",
-      "port": "3306",
-      "user": "admin",
-      "pass": "password#123",
-      "name": "thools"
-  }
+    "dbDriver": "mysql",
+    "dbServerIp": "localhost",
+    "dbPort": "3308",
+    "dbUser": "admin",
+    "dbPassword": "myproject#123",
+    "dbName": "myschema"
 
+  }
 }

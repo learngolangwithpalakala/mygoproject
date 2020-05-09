@@ -1,13 +1,19 @@
-CREATE DATABASE  IF NOT EXISTS `myschema` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+docker create -v /var/lib/mysql --name myschemadata  mysql
+
+docker run --name myschema --volumes-from myschemadata -e MYSQL_ROOT_PASSWORD=myproject#123 -p 3308:3306 mysql
+
+docker exec -it myschema  bash
+
+mysql -u root -pmyproject#123
+
+
+--mysql -u admin -pmyproject#123
+
+CREATE DATABASE  IF NOT EXISTS `myschema`
+
 USE `myschema`;
 
---
--- Table structure for table `user`
---
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(50) NOT NULL,
@@ -239,10 +245,9 @@ CREATE TABLE `approval_log`
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 
-create user 'admin'@'%' identified by 'password#123';
+create user 'admin'@'%' identified by 'myproject#123';
 
-GRANT ALL PRIVILEGES ON thools.* TO  'admin'@'%';
-
+GRANT ALL PRIVILEGES ON myschema.* TO  'admin'@'%';
 
 
 insert into myschema.role(role) values ('ADMIN');
