@@ -2,8 +2,8 @@
   "debug": true,
   "server": {
     "address": ":9092",
-    "host": "localhost"
-
+    "host": "localhost",
+    "filelocation": "C:\\pdffiles\\"
   },
   "context": {
     "timeout": 2
