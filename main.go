@@ -12,8 +12,8 @@ import (
 	_userUcase "github.com/learngolangwithpalakala/mygoproject/admin/user/usecase"
 	_userRoleRepo "github.com/learngolangwithpalakala/mygoproject/admin/user_role/repository"
 	"github.com/learngolangwithpalakala/mygoproject/config"
-	//"github.com/labstack/echo/middleware"
-	"github.com/learngolangwithpalakala/mygoproject/middleware"
+	"github.com/labstack/echo/middleware"
+	"net/http"
 	//"github.com/spf13/viper"
 	"log"
 	"os"
@@ -69,13 +69,11 @@ func main() {
 	fmt.Println(" DB Password:", configuration.Database.DBPassword)
 	e := echo.New()
 
-	middleware.InitMiddleware()
-	/*
-		e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 			AllowOrigins: []string{"*"},
 			AllowMethods: []string{http.MethodGet, http.MethodPut, http.MethodPost, http.MethodDelete},
 		}))
-	*/
+
 
 	db, err := config.GetDB(configuration.Database.DBDriver,
 		configuration.Database.DBName,
